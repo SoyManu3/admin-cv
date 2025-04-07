@@ -1,0 +1,28 @@
+<div class="container color-dark">
+    <div class="col">
+      <p>my interests !</p>
+    </div>
+  </div>
+  
+  <div class="container color-light">
+    <div class="col">
+      <form>
+        <input type="text" class="txt" name="interest" placeholder="interest" [(ngModel)]="myInterests.interest"> <br>
+     
+  
+        <input type="submit" class="btn" value="{{ btnTxt }}" (click)="AgregarInterests()">
+      </form>
+    </div>
+  
+    <div class="col2">
+      <p class="life-container" *ngFor="let in of interests;">
+        <span class="button-group-inline">
+        <input type="submit" class="btn" value="update" (click)="prepararEdicion(in)">
+        <input type="submit" class="btn" value="delete" (click)="deleteInterests(in.id)">
+        </span>
+        {{in.interest}}
+
+      </p>
+    </div>
+  </div>
+  ~

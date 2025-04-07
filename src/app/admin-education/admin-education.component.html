@@ -1,0 +1,29 @@
+<div class="container color-dark">
+    <div class="col">
+      <p> my education !</p>
+    </div>
+  </div>
+  
+  <div class="container color-light">
+    <div class="col">
+      <form>
+        <input type="text" class="txt" name="university" placeholder="university"[(ngModel)]="myEducation.university"> <br>
+        <input type="text" class="txt" name="highSchool" placeholder="highSchool"[(ngModel)]="myEducation.highSchool"> <br>
+       
+        <input type="submit" class="btn" value="{{ btnTxt }}" (click)="AgregarEducation()">
+      </form>
+    </div>
+  
+    <div class="col2">
+      <p class="life-container" *ngFor="let edu of education;">
+          <span class="button-group-inline">
+        <input type="submit" class="btn" value="update" (click)="prepararEdicion(edu)">
+        <input type="submit" class="btn" value="delete" (click)="deleteEducation(edu.id)">
+        </span>
+        {{edu.university}} - {{edu.highSchool}}
+
+      </p>
+    </div>
+  </div>
+  ~
+  
