@@ -1,0 +1,28 @@
+<div class="container color-dark">
+    <div class="col">
+      <p>my Skills!</p>
+    </div>
+  </div>
+  
+  <div class="container color-light">
+    <div class="col">
+      <form>
+        <input type="text" class="txt" name="hardSkills" placeholder="hardSkills" [(ngModel)]="mySkills.hardSkills"> <br>
+        <input type="text" class="txt" name="softSkills" placeholder="softSkills" [(ngModel)]="mySkills.softSkills"> <br>
+       
+        <input type="submit" class="btn" value="{{ btnTxt }}" (click)="AgregarSkill()">
+      </form>
+    </div>
+  
+    <div class="col2">
+      <p class="life-container" *ngFor="let job of skills;">
+        <span class="button-group-inline">
+        <input type="submit" class="btn" value="update" (click)="prepararEdicion(job)">
+        <input type="submit" class="btn" value="delete" (click)="deleteSkill(job.id)">
+        </span>
+        {{job.hardSkills}} - {{job.softSkills}}
+      </p>
+    </div>
+  </div>
+  ~
+  

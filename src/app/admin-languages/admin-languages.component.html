@@ -1,0 +1,28 @@
+<div class="container color-dark">
+    <div class="col">
+      <p>my Languages !</p>
+    </div>
+  </div>
+  
+  <div class="container color-light">
+    <div class="col">
+      <form>
+        <input type="text" class="txt" name="languages" placeholder="languages" [(ngModel)]="myLanguages.languages"> <br>
+
+  
+        <input type="submit" class="btn" value="{{ btnTxt }}" (click)="AgregarLanguages()">
+      </form>
+    </div>
+  
+    <div class="col2">
+      <p class="life-container" *ngFor="let job of languages;">
+        <span class="button-group-inline">
+        <input type="submit" class="btn" value="update" (click)=" prepararEdicion(job)">
+        <input type="submit" class="btn" value="delete" (click)="deleteLanguages(job.id)">
+        </span>
+        {{job.languages}}
+      </p>
+    </div>
+  </div>
+  ~
+  
