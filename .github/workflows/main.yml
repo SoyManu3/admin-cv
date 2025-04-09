@@ -26,11 +26,11 @@ jobs:
         run: npm run build
 
       - name: list dir
-        run: ls -la dist/mycv/browser
+        run: ls -la dist/admin-cv/browser
 
       - name: download, run httpd image
         run: |
-         docker run -d --name serving_base httpd
+         docker run -d --name serving_base_admin httpd
 
       - name: docker ps
         run: |
@@ -38,7 +38,7 @@ jobs:
 
       - name: cp angular build container 
         run: | 
-          docker cp dist/mycv/browser/. serving_base:/usr/local/apache2/htdocs
+          docker cp dist/admin-cv/browser/. serving_base_admin:/usr/local/apache2/htdocs
 
       - name: list container
         run: |
