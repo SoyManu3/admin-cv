@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: list dir
-        run: ls -la dist/mycv/browser
+        run: ls -la dist/admin-cv/browser
 
       - name: download, run httpd image
         run: |
