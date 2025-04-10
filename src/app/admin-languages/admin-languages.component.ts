@@ -33,7 +33,9 @@ export class AdminLanguagesComponent {
   }
 
    AgregarLanguages() {
-    if (this.isEditing && this.idEnEdicion) {
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (this.isEditing && this.idEnEdicion &&a) {
       this.languagesService.updateLanguages(this.myLanguages, this.idEnEdicion).then(() => {
         console.log('Updated item successfully!');
         this.resetForm();
@@ -45,13 +47,17 @@ export class AdminLanguagesComponent {
       });
     }
   }
+  }
 
   deleteLanguages(id?: string) {
-    if (!id) return;
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (!id &&a) return;
     this.languagesService.deleteLanguages(id).then(() => {
       console.log('delete item successfully!');
     });
     console.log(id);
+  }
   }
 
   prepararEdicion(edu: Languages) {

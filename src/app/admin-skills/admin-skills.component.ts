@@ -36,7 +36,9 @@ export class AdminSkillsComponent {
 
 
   AgregarSkill() {
-    if (this.isEditing && this.idEnEdicion) {
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (this.isEditing && this.idEnEdicion &&a) {
       this.skillsService.updateSkills(this.mySkills, this.idEnEdicion).then(() => {
         console.log('Updated item successfully!');
         this.resetForm();
@@ -48,14 +50,18 @@ export class AdminSkillsComponent {
       });
     }
   }
+  }
 
   deleteSkill(id?: string) {
-    if (!id) return;
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (!id ) return;
     this.skillsService.deleteSkills(id).then(() => {
       console.log('delete item successfully!');
     });
     console.log(id);
   }
+}
 
   prepararEdicion(edu: Skills) {
     this.mySkills = { ...edu }; 
