@@ -32,7 +32,9 @@ export class AdminWorkexperienceComponent {
   }
 
    AgregarJob() {
-    if (this.isEditing && this.idEnEdicion) {
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (this.isEditing && this.idEnEdicion ) {
       this.workExperienceService.updateWorkExperience(this.myWorkExperience, this.idEnEdicion).then(() => {
         console.log('Updated item successfully!');
         this.resetForm();
@@ -44,13 +46,18 @@ export class AdminWorkexperienceComponent {
       });
     }
   }
+  
+  }
 
   deleteJob(id?: string) {
-    if (!id) return;
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (!id ) return;
     this.workExperienceService.deleteWorkExperience(id).then(() => {
       console.log('delete item successfully!');
     });
     console.log(id);
+  }
   }
 
   prepararEdicion(edu: WorkExperience) {

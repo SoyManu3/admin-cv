@@ -33,7 +33,9 @@ export class AdminHeaderComponent {
   }
 
    AgregarHeader() {
-    if (this.isEditing && this.idEnEdicion) {
+    const a=window.confirm("Estas seguro?");
+    if(a){
+    if (this.isEditing && this.idEnEdicion ) {
       this.headerService.updateHeader(this.myHeader, this.idEnEdicion).then(() => {
         console.log('Updated item successfully!');
         this.resetForm();
@@ -45,13 +47,17 @@ export class AdminHeaderComponent {
       });
     }
   }
+  }
 
   deleteHeader(id?: string) {
-    if (!id) return;
+    const a=window.confirm("Estas seguro?");
+    if (a){
+    if (!id ) return;
     this.headerService.deleteHeader(id).then(() => {
       console.log('delete item successfully!');
     });
     console.log(id);
+  }
   }
 
   prepararEdicion(edu: Header) {
