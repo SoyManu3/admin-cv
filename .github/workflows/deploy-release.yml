@@ -3,7 +3,7 @@ on:
   #push:
     #branches: [ "master"]
   pull_request:
-    branches: [ "master"]
+    branches: [ "release"]
 jobs:
   ci_cd_deploy_master:
     runs-on: ubuntu-latest
@@ -44,8 +44,8 @@ jobs:
             docker exec serving_base ls -la /usr/local/apache2/htdocs
 
       - name: build custom docker image
-        run: docker commit --change "ENV MODEL_NAME  ${{ secrets.MODEL_NAME}}"
-             serving_base ${{ secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}}
+        run: docker commit --change "ENV MODEL_NAME  ${{ secrets.MODEL_NAME2}}"
+             serving_base ${{ secrets.DOCKER_USER}}/${{secrets.MODEL_NAME2}}:${{github.sha}}
 
       - name: list images
         run:  |
@@ -58,4 +58,4 @@ jobs:
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: docker push
-        run: docker push ${{ secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}}
+        run: docker push ${{ secrets.DOCKER_USER}}/${{secrets.MODEL_NAME2}}:${{github.sha}} 
